@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="common-layout">
+    <el-container id="fix-window">
+      <el-header>
+        <TheNavigation/> 
+        <!-- 导航组件的插入位置 -->
+      </el-header>
+      <el-main>
+        <div class="el-container auto-size-box">
+          <router-view></router-view>
+          <!-- <HomeView/>  -->
+        </div>        
+      </el-main>
+      <el-footer>Footer</el-footer>
+    </el-container>
+  </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// 引入导航组件
+import TheNavigation from '@/components/TheNavigation.vue';
+import HomeView from '@/views/HomeView.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  components: {TheNavigation},
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+};
+
+</script>

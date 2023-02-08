@@ -1,0 +1,132 @@
+:root{
+  --main-bg-color:#05689d;
+  --sub-bg-color:#81b4ce;
+  --header-height: 7%;
+  --footer-height: 3%;
+  --font-normal:#909399;
+  --user-logo: 30px;
+  --title-font-size: 16px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#fix-window {
+  width: 100vw;
+  height: 100vh;
+}
+
+#nav {
+  Justify-content: left;
+  align-items: center;
+}
+
+#nav a {
+  color: #ffffff;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#nav a:hover {
+  background-color: #092e56;
+}
+
+
+
+.el-header {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--main-bg-color);
+  display: flex;
+  justify-content:space-between; /* 子元素在父级元素中两端对齐，要有display:flex才能生效 */
+  align-items: center;  /* 与父级元素水平中线居中对齐，要有display:flex才能生效 */
+}
+
+.header-container {
+  display: flex;
+  Align-items: center;
+  text-align: center;
+}
+
+#dp-logo {
+  color: #ffffff;
+}
+
+#user-circle {
+  width: var(--user-logo);
+  height: var(--user-logo);
+  border-radius: calc(var(--user-logo)/2) ;
+  background-color: #ffffff;
+}
+
+#user-logo {
+  width: var(--user-logo);
+}
+
+
+.el-main {
+  padding: 0px;
+}
+
+.el-footer {
+  background-color: var(--sub-bg-color) ;
+  height: var(--footer-height);
+}
+
+.el-container {
+  width: 100%;
+  flex-flow: wrap;
+}
+
+.auto-size-box{
+  height: 100%;
+}
+
+
+.el-row {
+  display: flex;
+  justify-content:space-between; 
+}
+.el-row:last-child {
+  margin-bottom: 0;
+}
+.el-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+
+#home {
+  width: 100%;
+  height: inherit;
+  background-size:auto 100%;
+  background-position: center center;
+  background-image: url('../assets/homeBG.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.tag {
+  font-size: var(--title-font-size);
+  line-height: var(--title-font-size);
+}
+
