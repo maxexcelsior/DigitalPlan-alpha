@@ -6,8 +6,9 @@ const routes = [
   {path: '/', name: 'home', component: HomeView},
   {path: '/digitalplan', name: 'digitalplan', component: () => import(/* webpackChunkName: "digitalplan" */'@/views/DigitalPlanView.vue')},
   {path: '/database', name: 'database', component: () => import(/* webpackChunkName: "database" */'@/views/DataBaseView.vue')},
-  {path: '/onemap', name: 'onemap', component: () => import(/* webpackChunkName: "onemap" */'@/views/OneMap.vue')},
+  {path: '/onemap', name: 'onemap', component: () => import(/* webpackChunkName: "onemap" */'@/views/OneMapView.vue')},
   {path: '/login', name: 'login', component: () => import(/* webpackChunkName: "onemap" */'@/views/LoginView.vue')},
+  {path: '/account', name: 'account', component: () => import(/* webpackChunkName: "onemap" */'@/views/AccountView.vue')},
   {path: '/sandbox', name: 'sandbox',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

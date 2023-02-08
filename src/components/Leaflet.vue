@@ -1,7 +1,5 @@
 <template>
-  <h1>一张图</h1>
-    <div id="map">
-    </div>
+    <div id="map"></div>
 </template>
 
 
@@ -58,10 +56,9 @@
 
 
 </script>
-<style scoped>
+<style>
   #map {
-    width: 800px;
-    height: 500px;
-    margin: 50px auto;
+    width: 100%;
+    height: 100%;
   }
 </style>

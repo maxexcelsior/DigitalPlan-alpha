@@ -2,7 +2,7 @@
   <router-link to="/" class="tag">
     <div class="grid-content header-container" >
       <img id="dp-logo" src="../assets/拼图.svg" alt="bee" height="30" >
-      <div style="margin-left:10px; font-size:27px; line-height:27px; color: white; font-style: italic; font-weight: bold;">数字图则平台</div>
+      <div style="margin-left:10px; font-size:27px; line-height:27px; color: white; font-style: italic; font-weight: bold;">规建管一体化平台</div>
     </div>
   </router-link> 
 
@@ -20,10 +20,11 @@
         <el-icon :size="24"><Setting /></el-icon>
       </div>
     </router-link>
-    <div id="user-circle">
-      <img id="user-logo" src="../assets/bee2.png" alt="bee" > 
-    </div>
-
+    <router-link to="/account">
+      <div id="user-circle">
+        <img id="user-logo" src="../assets/bee2.png" alt="bee" > 
+      </div>
+    </router-link>
   </div>
 
 
@@ -34,7 +35,7 @@
   #nav .active-link {
     font-weight: bolder;
     border: 1px solid white;
-    border-radius: 5px;
+
   }
 
 </style>
