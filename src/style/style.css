@@ -1,8 +1,9 @@
 :root{
   --main-bg-color:#05689d;
   --sub-bg-color:#81b4ce;
-  --header-height: 7%;
-  --footer-height: 3%;
+  --header-height: 7vh;
+  --footer-height: 3vh;
+  --body-height: calc(100vh- var(--header-height) - var(--footer-height));
   --font-normal:#909399;
   --user-logo: 30px;
   --title-font-size: 16px;
@@ -11,7 +12,8 @@
 * {
   margin: 0px;
   padding: 0px;
-  text-decoration: none;
+  text-decoration: none; 
+  box-sizing: border-box;
 }
 
 #app {
@@ -44,7 +46,11 @@
   background-color: #092e56;
 }
 
+#nav .active-link {
+  font-weight: bolder;
+  border: 1px solid white;
 
+}
 
 .el-header {
   width: 100%;

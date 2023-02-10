@@ -1,4 +1,5 @@
 <template>
+  <el-container class="login-bg">
     <div class="login-box">
     <form>
         <div class="user-box">
@@ -9,28 +10,32 @@
         <input type="password" name="" required="">
         <label>密码</label>
         </div>
-        <a href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        登录
-        </a>
+        <router-link to="/home">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          登录
+        </router-link>
+
     </form>
     </div>
+  </el-container>
+
 </template>
 
 
-<style>
+<style >
 
-body {
+.login-bg {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  background: linear-gradient(#141e30, #243b55);
+  background: linear-gradient(#03244d, #243b55);
 }
 
 .login-box {
+  
   position: absolute;
   top: 50%;
   left: 50%;

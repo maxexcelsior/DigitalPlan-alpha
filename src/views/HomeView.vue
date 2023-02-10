@@ -1,23 +1,13 @@
 <template>
   <el-container id="home">
-    <!-- <router-link to="onemap">
-      <h1>一张图</h1> 
-    </router-link>
-    <router-link to="digitalplan">
-      <h1>数字图则</h1> 
-    </router-link>
-    <router-link to="sandbox">
-      <h1>数字沙盘</h1> 
-    </router-link> -->
-
     
     <router-link class="module"
-      v-for="destination in destinations"
-      :key="destination.id"  
-      :to="destination.slug"
+      v-for="module in modules"
+      :key="module.id"  
+      :to="module.slug"
     >
-      <h2 class="module-title">{{destination.name}}</h2>
-      <img :src="`/images/${destination.image}`" :alt="destination.name" class="module-img">
+      <h2 class="module-title">{{module.name}}</h2>
+      <img :src="`/images/${module.image}`" :alt="module.name" class="module-img">
     </router-link>
     <!-- 用数据的id作为唯一的key -->         
   </el-container>
@@ -25,11 +15,11 @@
 
 
 <script>
-import sourceData from '@/data/data.json'
+import sourceData from '@/data/moduledata.json'
 export default {
   data(){
     return {
-      destinations: sourceData.destinations
+      modules: sourceData.modules
     }
   }
 }
@@ -69,7 +59,7 @@ export default {
 
     font-style: italic;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 35px;
 
     background-image: linear-gradient(45deg, #01224B, #05699D);
     background-clip: text;

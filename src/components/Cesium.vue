@@ -1,7 +1,6 @@
 <template>  
-    <div id="cesiumContainer"></div>
+    <div id="cesiumContainer" style="height:99%"></div>
 </template>
-
 
 
 <script>
@@ -9,7 +8,7 @@
 // let Cesium = require("../../build/Cesium-1.80/Build/Cesium");
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Mzg3ODE5Yy0wMGVjLTRhMjMtYmQxMS1hZmFlNTQ4NjA1MTgiLCJpZCI6NTAwNTAsImlhdCI6MTYxNzYxMTQwNX0.ci0hbAbdcyUKpzVrS9CboI93PxV-uHnJtDrwF68IoBI';
 export default {
-  name: 'CesiumView',
+  name: 'Cesium',
   props: {
     msg: String
   },
@@ -139,10 +138,3 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="css">
-#cesiumContainer {
-  height: calc(100vh - 36px - 2px); /* -2px是上下描边粗细 */
-}
-
-</style>

@@ -7,10 +7,8 @@
   </router-link> 
 
   <div id="nav" class="grid-content header-container">
-    <router-link to="/" class="tag">Home</router-link> 
-    <router-link to="/onemap" class="tag">一张图</router-link> 
-    <router-link to="/digitalplan" class="tag">数字图则</router-link> 
-    <router-link to="/sandbox" class="tag">数字沙盘</router-link> 
+    <router-link to="/home" class="tag">工作台</router-link> 
+    <router-link to="/workflow" class="tag">工作流</router-link> 
     <router-link to="/database" class="tag">数据库</router-link>
   </div>
 
@@ -26,16 +24,5 @@
       </div>
     </router-link>
   </div>
-
-
-
 </template>
 
-<style lang="css">
-  #nav .active-link {
-    font-weight: bolder;
-    border: 1px solid white;
-
-  }
-
-</style>

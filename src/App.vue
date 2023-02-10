@@ -20,7 +20,6 @@
 <script>
 // 引入导航组件
 import TheNavigation from '@/components/TheNavigation.vue';
-import HomeView from '@/views/HomeView.vue';
 
 export default {
   components: {TheNavigation},
