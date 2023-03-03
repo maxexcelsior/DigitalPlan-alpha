@@ -4,6 +4,7 @@
         <Menu/>
     </el-aside>
     <el-main>
+      <div class="module-name">一张图</div>
       <Leaflet/>
     </el-main>        
   </el-container >  
@@ -24,3 +25,14 @@ export default {
 };
 
 </script>
+
+<style>
+.module-name {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 999;
+  color: white;
+}
+
+</style>

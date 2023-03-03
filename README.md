@@ -1,5 +1,9 @@
 # d-plan
 
+## 备注
+node.js版本：v18.12.1
+npm版本：8.19.2
+
 ## Project setup
 ```
 npm install

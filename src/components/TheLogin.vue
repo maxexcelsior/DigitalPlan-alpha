@@ -1,14 +1,14 @@
 <template>
-  <el-container class="login-bg">
+  <el-container>
     <div class="login-box">
     <form>
         <div class="user-box">
+        <label class="label">用户名</label>
         <input type="text" name="" required="">
-        <label>用户名</label>
         </div>
         <div class="user-box">
+        <label class="label">密码</label>
         <input type="password" name="" required="">
-        <label>密码</label>
         </div>
         <router-link to="/home">
           <span></span>
@@ -27,25 +27,27 @@
 
 <style >
 
-.login-bg {
-  margin:0;
-  padding:0;
-  font-family: sans-serif;
-  background: linear-gradient(#03244d, #243b55);
-}
 
 .login-box {
-  
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: rgba(0,0,0,.5);
+  background: rgba(255,255,255,.5);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  /* box-shadow: 0 15px 25px rgba(5,104,157,.6); */
+
+  border: 3px solid transparent;
   border-radius: 10px;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(-45deg, #d9eafe, #fff, #d9eafe),
+  linear-gradient(-45deg, #3284b1, #cee2ec, #3284b1);
+  transition: all 0.3s;
+  -webkit-box-reflect: below 20px linear-gradient(transparent, rgba(255, 255, 255, 0.2));
 }
 
 .login-box h2 {
@@ -57,6 +59,7 @@
 
 .login-box .user-box {
   position: relative;
+  display: block;
 }
 
 .login-box .user-box input {
@@ -64,19 +67,20 @@
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
+  margin-top: 20px;
   margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
+  border: 1px solid #fff;
   outline: none;
-  background: transparent;
+  background: var(--sub-bg-color);
+  border-radius: 5px;
 }
 .login-box .user-box label {
   position: absolute;
-  top:0;
+  top:-18px;
   left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
+  margin: 10px 0; 
+  font-size: 15px;
+  color: var(--main-bg-color);
   pointer-events: none;
   transition: .5s;
 }
@@ -85,7 +89,7 @@
 .login-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #03e9f4;
+  color: var(--main-bg-color);
   font-size: 12px;
 }
 
@@ -93,24 +97,25 @@
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: var(--main-bg-color);
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
-  letter-spacing: 4px
+  letter-spacing: 4px;
+  border-radius: 5px;
 }
 
 .login-box a:hover {
-  background: #03e9f4;
+  background: var(--main-bg-color);
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px var(--main-bg-color),
+              0 0 25px var(--main-bg-color),
+              0 0 50px var(--main-bg-color),
+              0 0 100px var(--main-bg-color);
 }
 
 .login-box a span {
@@ -123,7 +128,7 @@
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
+  background: linear-gradient(90deg, transparent, var(--main-bg-color));
   animation: btn-anim1 1s linear infinite;
 }
 
@@ -141,7 +146,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
+  background: linear-gradient(180deg, transparent, var(--main-bg-color));
   animation: btn-anim2 1s linear infinite;
   animation-delay: .25s
 }
@@ -160,7 +165,7 @@
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
+  background: linear-gradient(270deg, transparent, var(--main-bg-color));
   animation: btn-anim3 1s linear infinite;
   animation-delay: .5s
 }
@@ -179,7 +184,7 @@
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #03e9f4);
+  background: linear-gradient(360deg, transparent, var(--main-bg-color));
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s
 }

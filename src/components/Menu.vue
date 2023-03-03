@@ -78,7 +78,6 @@ export default {
   height: 100%;
   width: 240px;
   padding-top: 20px;
-  border-right: 1px solid #ececec;
   transition: all .3s ease;
   overflow: auto;
   i {

@@ -58,13 +58,21 @@
             "Districts": districts
         };
 
+
+
         let map = L.map("map", {
           center: [23.114302, 113.381237], // 中心位置 
           zoom: 14, // 缩放等级
           attributionControl: false, // 版权控件
-          zoomControl: true, //缩放控件
+          zoomControl: false, //默认在左上角，要自定义的话必须false
           layers: AmapSatellite
         });
+
+        //定义一个地图缩放控件
+        var zoomControl = L.control.zoom({position:'bottomright'});
+        //将地图缩放控件加载到地图
+        map.addControl(zoomControl);
+
         this.map = map; // data上需要挂载
 
         // 添加 leaflet.pm 的工具条

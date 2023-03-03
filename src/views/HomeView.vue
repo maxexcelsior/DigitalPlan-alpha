@@ -33,6 +33,7 @@ export default {
     margin: 30px;
     padding: 20px;
 
+    /* 渐变圆角边框 */
     border: 3px solid transparent;
     border-radius: 10px;
     background-clip: padding-box, border-box;
