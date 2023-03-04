@@ -1,11 +1,18 @@
 <template>
   <el-container >
-    <el-aside style="height=100%">
+    <el-aside style="height=100%" width="auto">
         <Sidebar/>
     </el-aside>
     <el-main>
-       <h1>main</h1>
-       
+	  <div class="module-card">
+        <router-link to="/home" class="tag">
+          <div class="back-btn">
+            <el-icon :size="24"><Back /></el-icon>
+          </div>            
+        </router-link>
+        <div class="module-name">数字图则</div>
+      </div>       
+      <h1>main</h1>
     </el-main>        
   </el-container >  
 </template>

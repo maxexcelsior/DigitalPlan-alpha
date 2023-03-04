@@ -21,7 +21,15 @@
           </el-tabs>
         </el-aside>
         <el-main >
-            <Cesium/>
+          <div class="module-card">
+            <router-link to="/home" class="tag">
+              <div class="back-btn">
+                <el-icon :size="24"><Back /></el-icon>
+              </div>            
+            </router-link>
+            <div class="module-name">数字沙盘</div>
+          </div>       
+          <Cesium/>
         </el-main>        
       </el-container >  
 

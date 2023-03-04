@@ -4,7 +4,15 @@
         <Menu/>
     </el-aside>
     <el-main>
-      <div class="module-name">一张图</div>
+      <div class="module-card">
+        <router-link to="/home" class="tag">
+          <div class="back-btn">
+            <el-icon :size="24"><Back /></el-icon>
+          </div>            
+        </router-link>
+
+        <div class="module-name">一张图</div>
+      </div>            
       <Leaflet/>
     </el-main>        
   </el-container >  
@@ -26,13 +34,3 @@ export default {
 
 </script>
 
-<style>
-.module-name {
-  position: absolute;
-  left: 50px;
-  top: 50px;
-  z-index: 999;
-  color: white;
-}
-
-</style>

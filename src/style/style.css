@@ -83,3 +83,45 @@
   line-height: var(--title-font-size);
 }
 
+
+.module-card{
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 10px;
+  z-index: 999;
+  display: flex;
+  color: #000;  
+  height: 44px;
+
+}
+
+.module-name {
+  position: relative;
+  height: 44px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid rgba(0,0,0,0.2);
+  background-color: #fff;
+  border-radius: 0px 5px 5px 0px;
+  text-align: center;
+  line-height: 44px;
+  
+}
+
+.back-btn {
+  position: relative;
+    height: 44px;
+  margin-left: 10px;
+  border: 2px solid rgba(0,0,0,0.2);
+  background-color: #fff;
+  border-radius: 5px 0px 0px 5px;
+
+  /* 以下两个要一起用才能让子元素在父元素中上下居中对齐 */
+  display: flex;
+  align-items: center;
+}
+
+.back-btn .el-icon{
+  margin-left: 10px;  
+  margin-right: 10px;  
+}
