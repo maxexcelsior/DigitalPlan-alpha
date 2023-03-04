@@ -39,13 +39,7 @@
         var TianmapVector = L.tileLayer("https://t0.tianditu.gov.cn/vec_c/wmts?tk=60cb60087824a7f7bdb3845ce8a316dc"  , {maxZoom: 19, attribution: '© TmapVector'});
         var TianmapSatellite = L.tileLayer("https://t0.tianditu.gov.cn/img_c/wmts?tk=60cb60087824a7f7bdb3845ce8a316dc"  , {maxZoom: 19, attribution: '© TmapmapSatellite'});
 
-        //设置marker
-        var west_district = L.marker([23.115267, 113.363438], {icon: markerIcon}).bindPopup('金融城西区'),
-            startup_district    = L.marker([23.11436, 113.381462], {icon: markerIcon}).bindPopup('金融城起步区'),
-            north_district    = L.marker([23.122017, 113.381977], {icon: markerIcon}).bindPopup('金融城北区'),
-            east_district    = L.marker([23.112426,113.394294], {icon: markerIcon}).bindPopup('金融城东区');
-        var districts = L.layerGroup([west_district, startup_district, north_district, east_district]);
-
+        //创建一个底图组
         var baseMaps = {
             "OpenStreetMap": osm,
             "高德影像": AmapSatellite,
@@ -54,12 +48,23 @@
             "天地图影像": TianmapSatellite,
         };
 
-        var overlayMaps = {
-            "Districts": districts
-        };
+        //设置marker
+        var west_district = L.marker([23.115267, 113.363438], {icon: markerIcon}).bindPopup('金融城西区'),
+            startup_district    = L.marker([23.11436, 113.381462], {icon: markerIcon}).bindPopup('金融城起步区'),
+            north_district    = L.marker([23.122017, 113.381977], {icon: markerIcon}).bindPopup('金融城北区'),
+            east_district    = L.marker([23.112426,113.394294], {icon: markerIcon}).bindPopup('金融城东区');
+        //创建一个叠加图层组，这个叠加图层组是上面定义的分区名称
+        var districts = L.layerGroup([west_district, startup_district, north_district, east_district]);
 
 
+        //定义geojson对象并加载外部数据
+        var geojsonFeature = require('@/data/广州市街道行政区.json');
+        var qjxzq_boundary = L.geoJSON(geojsonFeature);
 
+        //将矢量、json等数据添加到叠加图层组overlayMaps中
+        var overlayMaps = {"Districts": districts, "区级行政区":qjxzq_boundary};
+
+        //定义地图
         let map = L.map("map", {
           center: [23.114302, 113.381237], // 中心位置 
           zoom: 14, // 缩放等级
@@ -67,9 +72,11 @@
           zoomControl: false, //默认在左上角，要自定义的话必须false
           layers: AmapSatellite
         });
+        map.createPane('labels');
 
         //定义一个地图缩放控件
         var zoomControl = L.control.zoom({position:'bottomright'});
+
         //将地图缩放控件加载到地图
         map.addControl(zoomControl);
 
@@ -81,24 +88,11 @@
           drawMarker: false,
           drawCircle: false,
         });
-        // 设置语言
+
+        // 设置 leaflet.pm 工具条语言
         map.pm.setLang('zh');
 
-
-
-        // L.tileLayer(
-        //   //高德矢量↓
-        //   // "http://wprd04.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}" 
-        //   //高德影像↓
-        //   "https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}" 
-        //   //openstreet矢量↓
-        //   // "https://tile.openstreetmap.org/{z}/{x}/{y}.png" 
-        //   //天地图
-        //   // "http://t0.tianditu.gov.cn/img_w/wmts?tk=60cb60087824a7f7bdb3845ce8a316dc" 
-        //   //google影像↓
-        //   // "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}1"
-        // ).addTo(map) // 加载底图
-
+        //添加图层控制组件，图层控制组件只有两种，baseMaps和overlayMaps，baseMaps是单选，overlayMaps可以复选，矢量图形、json等数据都要添加到叠加图层组overlayMaps中
         var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
