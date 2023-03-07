@@ -25,7 +25,8 @@ export default {
     var amap_label = new Cesium.UrlTemplateImageryProvider({url:"http://webst02.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8"}); // eslint-disable-line no-unused-vars
     
     var arcgis = new Cesium.UrlTemplateImageryProvider({url:"https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"}); // eslint-disable-line no-unused-vars
-    
+
+
     // 加载地形
     var terrain = new Cesium.CesiumTerrainProvider({
         url : Cesium.IonResource.fromAssetId(1),
@@ -34,15 +35,15 @@ export default {
     //加载视图
     var viewer = new Cesium.Viewer("cesiumContainer", {
       animation: false, //是否创建动画小器件，左下角仪表
-      baseLayerPicker: false, //是否显示图层选择器
+      baseLayerPicker: true, //是否显示图层选择器
       fullscreenButton: true, //是否显示全屏按钮
       geocoder: true, //是否显示geocoder小器件，右上角查询按钮
-      homeButton: false, //是否显示Home按钮
+      homeButton: true, //是否显示Home按钮
       infoBox: true, //是否显示信息框
       sceneModePicker: false, //是否显示3D/2D选择器
       selectionIndicator: true, //是否显示选取指示器组件
       timeline: false, //是否显示时间轴
-      navigationHelpButton: false, //是否显示右上角的帮助按钮
+      navigationHelpButton: true, //是否显示右上角的帮助按钮
       scene3DOnly: true, //如果设置为true，则所有几何图形以3D模式绘制以节约GPU资源
       clock: new Cesium.Clock(), //用于控制当前时间的时钟对象
       selectedImageryProviderViewModel: undefined, //当前图像图层的显示模型，仅baseLayerPicker设为true有意义
@@ -63,30 +64,27 @@ export default {
       //需要进行可视化的数据源的集合
     });
     
-    viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../assets/geodata/dongguan.json', {
-        stroke: Cesium.Color.HOTPINK,
-        fill: Cesium.Color.PINK.withAlpha(0.5),
-        strokeWidth: 3
-    }));
     
     //地点坐标
     //天安门 = 116.39, 39.9, 15000.0
     //中国 = 73.66, 53.55, 135.05, 3.86
     // 初始观看范围
     viewer.camera.setView({
-        destination: Cesium.Rectangle.fromDegrees(113.73, 23.039, 113.78, 22.98)
-    //     destination: Cesium.Cartesian3.fromDegrees(116.39, 39.9, 15000.0),
+        // destination: Cesium.Rectangle.fromDegrees(113.34402,23.136133, 113.425731,23.091374), //俯视
+        destination: Cesium.Cartesian3.fromDegrees(113.414109,23.066408, 3000.0),  //立体（经度，维度，高度）
         // destination: new Cesium.Cartesian3(1332761.6877998516, -4662399.913291841, 4137888.8927274314),
-        // orientation: {
-        //     heading: 0.6,
-        //     pitch: -0.666,
-        //     roll: 0.0
-        // }
+        orientation: {
+            heading: -0.5,  //摇头
+            pitch: -0.5, //抬头低头
+            roll: 0.0  //侧头city
+        }
     });
     //图像叠加↓↓↓
     // viewer.imageryLayers.addImageryProvider(amap_label);
+    
     //加载3D tiles
-    var city = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({url:Cesium.IonResource.fromAssetId(75343)}));
+    const tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({url: Cesium.IonResource.fromAssetId(1572345),}));
+
     viewer.scene.globe.depthTestAgainstTerrain = true; //开了这个可以让建筑根据地形放在地面上
     //显示风格
     var transparentStyle = new Cesium.Cesium3DTileStyle({ // eslint-disable-line no-unused-vars
@@ -106,10 +104,13 @@ export default {
             description : '"Building id ${id} has height ${Height}."'
         }            
     }); // eslint-disable-line no-unused-vars
+
     //选择风格
-    city.style = heightstyle;
+    // tileset.style = transparentStyle; 
+
     //清晰度优化
     // viewer.scene.fxaa = false;
+
     //经纬度控件
     var longitude_show=document.getElementById('longitude_show');  
     var latitude_show=document.getElementById('latitude_show');  

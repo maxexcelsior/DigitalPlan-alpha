@@ -36,12 +36,13 @@
         var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '© OpenStreetMap'});
         var AmapSatellite = L.tileLayer("https://webst01.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}" , {maxZoom: 19, attribution: '© AmapSatellite'});
         var AmapVector = L.tileLayer("http://wprd04.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}"  , {maxZoom: 19, attribution: '© AmapVector'});
+        var AmapRoad = L.tileLayer("https://wprd01.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=2&style=8&ltype=11%0A%0A"  , {maxZoom: 19, attribution: '© AmapRoad'});
         var TianmapVector = L.tileLayer("https://t0.tianditu.gov.cn/vec_c/wmts?tk=60cb60087824a7f7bdb3845ce8a316dc"  , {maxZoom: 19, attribution: '© TmapVector'});
         var TianmapSatellite = L.tileLayer("https://t0.tianditu.gov.cn/img_c/wmts?tk=60cb60087824a7f7bdb3845ce8a316dc"  , {maxZoom: 19, attribution: '© TmapmapSatellite'});
 
         //创建一个底图组
         var baseMaps = {
-            "OpenStreetMap": osm,
+            // "OpenStreetMap": osm,   //OSM的坐标与高德有差别
             "高德影像": AmapSatellite,
             "高德矢量": AmapVector,
             "天地图矢量": TianmapVector,
@@ -58,11 +59,13 @@
 
 
         //定义geojson对象并加载外部数据
-        var geojsonFeature = require('@/data/广州市街道行政区.json');
-        var qjxzq_boundary = L.geoJSON(geojsonFeature);
+        var jrc_geojson = require('@/data/金融城.json');
+        var qjxzq_geojson = require('@/data/广州市区级行政区.json');
+        var qjxzq_boundary = L.geoJSON(qjxzq_geojson);
+        var jrc_boundary = L.geoJSON(jrc_geojson);
 
         //将矢量、json等数据添加到叠加图层组overlayMaps中
-        var overlayMaps = {"Districts": districts, "区级行政区":qjxzq_boundary};
+        var overlayMaps = {"Districts": districts, "区级行政区":qjxzq_boundary, "金融城":jrc_boundary, "路网":AmapRoad};
 
         //定义地图
         let map = L.map("map", {

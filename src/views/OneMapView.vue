@@ -10,7 +10,6 @@
             <el-icon :size="24"><Back /></el-icon>
           </div>            
         </router-link>
-
         <div class="module-name">一张图</div>
       </div>            
       <Leaflet/>
