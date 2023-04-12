@@ -11,7 +11,15 @@
           <!-- <HomeView/>  -->
         </div>        
       </el-main>
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <div class="footer-info">©Digital Plan</div>
+        <div class="footer-info">华南理工大学建筑学院</div>
+        <!-- <div class="footer-info">硕士研究生学位论文</div>
+        <div class="footer-info">面向精细化开发与适应性管控的数字图则研究</div>
+        <div class="footer-info">陈铭熙</div>
+        <div class="footer-info">202020104792</div>
+        <div class="footer-info">指导老师：费彦</div> -->
+      </el-footer>
     </el-container>
   </div>
 </template>

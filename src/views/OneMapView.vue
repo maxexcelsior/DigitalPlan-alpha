@@ -12,7 +12,8 @@
         </router-link>
         <div class="module-name">一张图</div>
       </div>            
-      <Leaflet/>
+      <ArcGisMap/>
+      <!-- <Leaflet/> -->
     </el-main>        
   </el-container >  
 </template>
@@ -21,12 +22,13 @@
 <script>
 // 引入leaflet组件
 import Leaflet from '@/components/Leaflet.vue';
+import ArcGisMap from '@/components/ArcGisMap.vue';
 import Menu from '@/components/Menu.vue';
 
 export default {
   components: {
     Menu,
-    Leaflet,
+    ArcGisMap,
     },
 
 };

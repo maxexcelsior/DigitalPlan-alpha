@@ -76,7 +76,14 @@
   align-items: center;
 }
 
+.el-footer {
+  display: flex;
+  justify-content: center;
+}
 
+.footer-info {
+  margin-left: 3vh;
+}
 
 .tag {
   font-size: var(--title-font-size);

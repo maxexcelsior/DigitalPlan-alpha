@@ -14,6 +14,7 @@ import 'leaflet.pm/dist/leaflet.pm.css'
 import 'leaflet.pm/dist/leaflet.pm.min.js';
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
+
 import ChartBlock from './components/Charts/ChartsBlock.vue'
 
 //引入echarts
